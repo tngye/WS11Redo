@@ -20,7 +20,11 @@ public class Ws11RedoApplication {
 			port = cliOpts.getOptionValues("port").get(0);
 		}
 		if (port == null){
+			portNumber = System.getenv("PORT");
+			
+			if(portNumber == null){
 			portNumber = System.getProperty("PORT", Default_Port_Number);
+			}
 		}else {
 			portNumber = (String)port;
 		}
